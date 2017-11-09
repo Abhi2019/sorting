@@ -1,0 +1,60 @@
+#include <stdio.h>
+int partition(int arr[],int l,int h){
+    int i,j,m=0,pivot=0,temp;
+    i=l+1;
+    j=h;
+    pivot=arr[l];
+    
+    while(i<=j){
+        
+        while(arr[i]<pivot && i<h){
+            i++;
+        }
+         while(pivot<arr[j]){
+             j--;
+         }
+         if(i<j){
+             
+             temp=arr[i];
+             arr[i]=arr[j];
+             arr[j]=temp;
+             i++;
+             j--;
+             
+         }
+         else{
+             i++;
+         }
+        
+    }
+    arr[l]=arr[j];
+    arr[j]=pivot;
+    return j;
+}
+
+void quick(int arr[],int l,int h){
+    int pivot;
+    if(l<=h){
+        
+        pivot=partition(arr,l,h);
+        quick(arr,l,pivot-1);
+        quick(arr,pivot+1,h);
+        
+    }
+    
+    
+    
+}
+
+
+int main() {
+	//code
+	int i=0;
+	int arr[]={48,44,19,59,72,80,42,65,82,8,95,68};
+	quick(arr,0,11);
+	for(i=0;i<12;i++){
+	    printf("%d ",arr[i]);
+	}
+	
+	return 0;
+}

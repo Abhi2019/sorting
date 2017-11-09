@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+	//coden
+	int arr[]={4,2,22,1,5,23};
+	int i=0,j=0,k=0,size,temp;
+	size=sizeof(arr)/sizeof(arr[0]);
+	//printf("%d",size);
+	for(i=0;i<size;i++){
+	    
+	    for(j=i;j<size;j++){
+	        
+	        if(arr[j]>arr[j+1]){
+	            
+	            temp=arr[i];
+	            arr[i]=arr[j+1];
+	            arr[j+1]=temp;
+	            
+	        }
+	        
+	    }
+	    
+	    
+	}
+	for(i=0;i<size;i++){
+	    printf("%d ",arr[i]);
+	}
+	
+	return 0;
+}
